@@ -8,9 +8,9 @@ The repository includes the script for streaming kafka data from spark and writi
 Data stream is published to the Kafka topic - babbel
 
 # Key Requirements
-Compnonents used in the architecture should be SCALABLE and FAULT TOLERANT.
+Components used in the architecture should be SCALABLE and FAULT TOLERANT.
 
-# Requirements
+# Features of Chosen Components
 As shown in the architecture diagram the pipeline requires AWS EMR cluster where we can deploy and run our streaming application, and also an amazon managed Cassandra database which will support update mode in write stream.
 
 Why Spark?
@@ -20,4 +20,6 @@ With respect to scalability we can integrate auto-scaling policy of AWS EMR to t
 
 Why AWS Keyspace (Cassandra)?
 AWS Keyspace can be readily integrated with spark structured streaming and supports update mode which is a requirement in the project. It is also higly scalable as Amazon Keyspaces automatic scaling can increase read capacity or write capacity as often as necessary, in accordance with our scaling policy policy attached to the service in terraform script. Additionally, unlike DynamoDB which is native to AWS, AWS Keyspace is just a managed Cassandra and so it's near to cloud agnostic policy.
+
+
 
