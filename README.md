@@ -15,6 +15,9 @@ As shown in the architecture diagram the pipeline requires AWS EMR cluster where
 
 Why Spark?
 Spark is a highly scalable, configurable and fault tolerant big data processing framework. Additionally structured streaming of spark supports windowing aggregations within specified time period which can be easily configured based on our requirements. In our case time period for state retention is 7 days.
-With respect to scalability we can integrate auto-scaling policy of AWS EMR to terraform script through which we can cater to the increasing traffic and also we pay for the resources we use.
+With respect to scalability we can integrate auto-scaling policy of AWS EMR to terraform script through which we can cater to the increasing traffic and also we pay for the resources we use. Spark streaming can also be seamlessly integrated with any Spark components like MLlib. Additionally, Spark is an open source and cloud agnostic framework which can be deployed on the cloud provider of our choice.
+
 
 Why AWS Keyspace (Cassandra)?
+AWS Keyspace can be readily integrated with spark structured streaming and supports update mode which is a requirement in the project. It is also higly scalable as Amazon Keyspaces automatic scaling can increase read capacity or write capacity as often as necessary, in accordance with our scaling policy policy attached to the service in terraform script. Additionally, unlike DynamoDB which is native to AWS, AWS Keyspace is just a managed Cassandra and so it's near to cloud agnostic policy.
+
